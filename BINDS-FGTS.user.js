@@ -12,7 +12,7 @@
 
     // =========================================================================
     //
-    //                           PROIBIDO ALTERAR POR CONTA PROPRIA!
+    //                           PROIBIDO ALTERAR POR CONTA PROPRIA! -  AEROGROSS
     //
     // =========================================================================
     const CONFIGURACAO_ATALHOS = {
