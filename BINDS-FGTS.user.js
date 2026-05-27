@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ATALHOS PADRONIZADOS - CONSULTORES FGTS
-// @version      6.2
+// @version      6.3
 // @match        https://s12.chatguru.app/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-FGTS.user.js
