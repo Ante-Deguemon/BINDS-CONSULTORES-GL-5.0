@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ATALHOS PADRONIZADOS - CONSIGNADO CLT
-// @version      1.0
+// @version      1.1
 // @match        https://s12.chatguru.app/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-CLT.user.js
@@ -14,12 +14,12 @@
     // CONFIGURAÇÃO DOS ATALHOS PADRÕES (IGUAL PARA TODOS OS CONSULTORES)
     // =========================================================================
     const CONFIGURACAO_ATALHOS = {
-        'F3':  ['69ef6933ed7b83c0680aaea1'], // DELEGAR FGTS
+        'F3':  ['69dce931939d5d56e962fed1'], // FECHAR ATENDIMENTO
         'F4':  ['69dfc15c97192296c3d7f58a'], // GERAR LINK AUTORIZA
-        'F6':  ['660eed83b644ff84d9cfe4a9'], // TEMPLATE CONTINUAR ATENDIMENTO
-        'F7':  [''], // NÃO MAPEADO
-        'F8':  [''], // NÃO MAPEADO
-        'F9':  [''], // NÃO MAPEADO
+        'F6':  ['64550dedbf469f52f37d218d'], // PEDIR DOC CLT
+        'F7':  ['69610f0979048dcd4033d958'], // FORM C6
+        'F8':  ['660eed83b644ff84d9cfe4a9'], // TEMPLATE CONTINUAR ATENDIMENTO
+        'F9':  ['69ef6933ed7b83c0680aaea1'], // DELEGAR FGTS
         'F10': [''], // NÃO MAPEADO
     };
 
