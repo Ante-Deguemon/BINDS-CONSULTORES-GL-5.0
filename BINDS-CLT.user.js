@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ATALHOS PADRONIZADOS - CONSIGNADO CLT
-// @version      1.1
+// @version      1.2
 // @match        https://s12.chatguru.app/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-CLT.user.js
@@ -21,6 +21,8 @@
         'F8':  ['660eed83b644ff84d9cfe4a9'], // TEMPLATE CONTINUAR ATENDIMENTO
         'F9':  ['69ef6933ed7b83c0680aaea1'], // DELEGAR FGTS
         'F10': [''], // NÃO MAPEADO
+        'F11': [''], // NÃO MAPEADO
+        'F12': [''], // NÃO MAPEADO
     };
 
     // =========================================================================
