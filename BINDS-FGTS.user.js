@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ATALHOS PADRONIZADOS - CONSULTORES FGTS
-// @version      6.5
+// @version      6.6
 // @match        https://s12.chatguru.app/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-FGTS.user.js
@@ -24,6 +24,8 @@
         'F8':  ['660eed83b644ff84d9cfe4a9'], // CONTINUAR ATENDIMENTO
         'F9':  ['67d2d40f754db923f517fb7f'], // DETALHADO BMS
         'F10': ['699721ee8320bfb90ed2464a'], // ANIVERSÁRIO
+        'F11': ['6a18695f48bb99c330346eb8'], // AINDA NÃO AUTORIZOU BMS
+        'F12': [''], // DESATIVADO
     };
     // =========================================================================
 
