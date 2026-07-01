@@ -2,7 +2,7 @@
 // @name         ChatGuru - Ligar bot em massa (loop 200 + F5 + filtro por nome)
 // @namespace    chatguru-toggle
 // @version      1.0
-// @match        https://s12.chatguru.app/chats
+// @match        https://s12.chatguru.app/*
 // @grant        none
 // @run-at       document-idle
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/CHATGURU-LIGAR-BOT.user.js
@@ -21,6 +21,7 @@
     BUSCAR_NO_DROPDOWN: true,                            // digita o nome no "Pesquisar" do dropdown
     DELAY_CHECAGEM: 1500,                                // pausa entre CLICAR e CHECAR se marcou (arquivados/usuário)
     TENTATIVAS_FILTRO: 5,                                // vezes que tenta garantir o filtro antes de recarregar
+    MARCAR_ARQUIVADOS: 1,                                // 0 = não marca/verifica arquivados | 1 = marca e verifica os arquivados
     ORDENAR_POR: 1,                                      // 0 = não mexe | 1 = Data Criação (Mais Novo) | 2 = Data Criação (Mais Antigo)
   };
   const LOOP_KEY = 'cg_sweep_loop_ativo';                // persiste o loop entre F5
@@ -275,7 +276,10 @@
   const rotuloStatus = s => s === 'ja-marcado' ? 'já marcado ✅' : s === 'marcado' ? 'marcado agora ✅' : 'NÃO ACHEI ⚠';
 
   // ---- CHECAGEM DUPLA: aplica, confirma e remarca se preciso (idempotente e seguro) ----
-  function arquivadosConfirmado() { return estaMarcado(acharCheckboxArquivar()); }
+  function arquivadosConfirmado() {
+    if (CFG.MARCAR_ARQUIVADOS !== 1) return true;   // desligado => não bloqueia (igual ao ORDENAR_POR = 0)
+    return estaMarcado(acharCheckboxArquivar());
+  }
 
   // 'aplicar' e 'confirmar' são funções; roda a marcação, confirma, e remarca enquanto não confirmar.
   async function garantirComChecagem(nome, aplicar, confirmar, tentativas = 3, espera = 800) {
@@ -369,9 +373,11 @@
 
     let arq = null, usr = null, ord = null;
     for (let tent = 1; tent <= CFG.TENTATIVAS_FILTRO; tent++) {
-      // ETAPA 1 — Arquivados (não avança sem confirmar)
-      arq = await garantirComChecagem('arquivados', () => marcarArquivados(), arquivadosConfirmado, 2, CFG.DELAY_CHECAGEM);
-      if (!arq.confirmado) { avisar(`Arquivados não confirmou (tentativa ${tent}/${CFG.TENTATIVAS_FILTRO}) — repetindo...`); await dormir(500); continue; }
+      // ETAPA 1 — Arquivados (não avança sem confirmar) — só se CFG.MARCAR_ARQUIVADOS === 1
+      if (CFG.MARCAR_ARQUIVADOS === 1) {
+        arq = await garantirComChecagem('arquivados', () => marcarArquivados(), arquivadosConfirmado, 2, CFG.DELAY_CHECAGEM);
+        if (!arq.confirmado) { avisar(`Arquivados não confirmou (tentativa ${tent}/${CFG.TENTATIVAS_FILTRO}) — repetindo...`); await dormir(500); continue; }
+      }
 
       // ETAPA 2 — Usuário Guilherme. O DELAY entre clicar e checar está embutido (CFG.DELAY_CHECAGEM).
       usr = await garantirComChecagem('usuario', () => selecionarUsuario(CFG.USUARIO_ALVO), () => usuarioJaSelecionado(CFG.USUARIO_ALVO), 2, CFG.DELAY_CHECAGEM);
@@ -393,9 +399,10 @@
     const usrOk = usuarioJaSelecionado(CFG.USUARIO_ALVO);
     const ordOk = ordenacaoConfirmada(CFG.ORDENAR_POR);
     const rot = (ok, c) => !ok ? 'FALHOU ⚠' : (c && c.status === 'ja-marcado' ? 'já marcado ✅' : 'ok ✅');
+    const arqMsg = CFG.MARCAR_ARQUIVADOS === 1 ? rot(arqOk, arq) : 'off';
     const ordTxt = CFG.ORDENAR_POR === 1 ? 'Criação↓Novo' : CFG.ORDENAR_POR === 2 ? 'Criação↑Antigo' : 'off';
     const ordMsg = (CFG.ORDENAR_POR === 1 || CFG.ORDENAR_POR === 2) ? (ordOk ? 'ok ✅' : 'FALHOU ⚠') : '—';
-    avisar(`Filtro → Arquiv: ${rot(arqOk, arq)} · Usuário: ${rot(usrOk, usr)} · Ordenar(${ordTxt}): ${ordMsg} · [${debugUsuario}]`);
+    avisar(`Filtro → Arquiv: ${arqMsg} · Usuário: ${rot(usrOk, usr)} · Ordenar(${ordTxt}): ${ordMsg} · [${debugUsuario}]`);
     return { arq: arqOk, usr: usrOk, ord: ordOk };
   }
 
