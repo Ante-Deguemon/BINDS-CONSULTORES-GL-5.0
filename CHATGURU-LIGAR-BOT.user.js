@@ -2,7 +2,7 @@
 // @name         ChatGuru - Ligar bot em massa (loop 200 + F5 + filtro por nome)
 // @namespace    chatguru-toggle
 // @version      1.0
-// @match        https://s12.chatguru.app/*
+// @match        https://s12.chatguru.app/chats
 // @grant        none
 // @run-at       document-idle
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/CHATGURU-LIGAR-BOT.user.js
