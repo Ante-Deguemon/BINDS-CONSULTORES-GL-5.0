@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ATALHOS PADRONIZADOS - CONSULTORES FGTS
-// @version      6.7
+// @version      6.9
 // @match        https://s12.chatguru.app/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-FGTS.user.js
@@ -16,7 +16,7 @@
     //
     // =========================================================================
     const CONFIGURACAO_ATALHOS = {
-        'F1':  ['6a0aff55f99f2f7f25f66882'], // OPERAÇÃO FIDUCIARIA SEM SER JUNHO
+        'F1':  ['6a0aff55f99f2f7f25f66882'], // OPERAÇÃO FIDUCIARIA
         'F3':  ['69205d691b9474ab13c568d3'], // AUDIO FGTS NEGADO
         'F4':  ['69fcb8274c65297d14982a0a'], // DEPOIS DE PASSAR VALOR FGTS
         'F6':  ['69dce931939d5d56e962fed1'], // FECHAR ATENDIMENTO
