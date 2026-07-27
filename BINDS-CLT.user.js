@@ -12,6 +12,8 @@
 
     // =========================================================================
     // CONFIGURAÇÃO DOS ATALHOS PADRÕES (IGUAL PARA TODOS OS CONSULTORES)
+    // 
+    //         VERIFICAR SE O CONSULTOR TEM TODOS OS DIALOGOS ATIVOS 
     // =========================================================================
     const CONFIGURACAO_ATALHOS = {
         'F3':  ['69dce931939d5d56e962fed1'], // FECHAR ATENDIMENTO
