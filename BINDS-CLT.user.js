@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         ATALHOS PADRONIZADOS - CONSIGNADO CLT
-// @version      1.3
+// @version      1.4
 // @match        https://s12.chatguru.app/*
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-CLT.user.js
-// @downloadURL  https://raw.githubusercontent.com/Ante-Deguemon/BINDS-CONSULTORES-GL-5.0/main/BINDS-CLT.user.js
+// @updateURL    https://raw.githubusercontent.com/GL-BUSINESS/BINDS-CONSULTORES-GL-5.0/main/BINDS-CLT.user.js
+// @downloadURL  https://raw.githubusercontent.com/GL-BUSINESS/BINDS-CONSULTORES-GL-5.0/main/BINDS-CLT.user.js
 // ==/UserScript==
 
 (function() {
